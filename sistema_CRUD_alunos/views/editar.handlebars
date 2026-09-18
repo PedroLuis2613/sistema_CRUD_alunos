@@ -1,0 +1,187 @@
+<div class="pagina">
+
+    <div class="titulo-pagina">
+
+        <div>
+
+            <h2>Editar aluno</h2>
+
+            <p>
+                Atualize as informações do aluno.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    {{#if erros}}
+
+    <div class="erros">
+
+        <strong>Corrija os seguintes problemas:</strong>
+
+        <ul>
+
+            {{#each erros}}
+                <li>{{this}}</li>
+            {{/each}}
+
+        </ul>
+
+    </div>
+
+    {{/if}}
+
+
+    <form
+        class="formulario"
+        method="POST"
+        action="/editar/{{aluno.id}}"
+    >
+
+        <div class="form-grid">
+
+            <div class="campo">
+
+                <label>Nome completo</label>
+
+                <input
+                    type="text"
+                    name="nome"
+                    value="{{aluno.nome}}"
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>E-mail</label>
+
+                <input
+                    type="email"
+                    name="email"
+                    value="{{aluno.email}}"
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Idade</label>
+
+                <input
+                    type="number"
+                    name="idade"
+                    value="{{aluno.idade}}"
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Curso</label>
+
+                <input
+                    type="text"
+                    name="curso"
+                    value="{{aluno.curso}}"
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Turma</label>
+
+                <input
+                    type="text"
+                    name="turma"
+                    value="{{aluno.turma}}"
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Turno</label>
+
+                <select name="turno">
+
+                    <option value="Manhã">
+                        Manhã
+                    </option>
+
+                    <option value="Tarde">
+                        Tarde
+                    </option>
+
+                    <option value="Noite">
+                        Noite
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Cidade</label>
+
+                <input
+                    type="text"
+                    name="cidade"
+                    value="{{aluno.cidade}}"
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Status</label>
+
+                <select name="status">
+
+                    <option value="Ativo">
+                        Ativo
+                    </option>
+
+                    <option value="Inativo">
+                        Inativo
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="botoes-formulario">
+
+            <button
+                class="botao"
+                type="submit"
+            >
+                Salvar alterações
+            </button>
+
+            <a
+                class="botao botao-cinza"
+                href="/alunos"
+            >
+                Cancelar
+            </a>
+
+        </div>
+
+    </form>
+
+</div>

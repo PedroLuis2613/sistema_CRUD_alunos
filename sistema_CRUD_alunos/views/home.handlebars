@@ -1,0 +1,113 @@
+<div class="pagina">
+
+    <div class="titulo-pagina">
+
+        <div>
+
+            <h2>Visão geral</h2>
+
+            <p>
+                Visão geral do sistema de alunos.
+            </p>
+
+        </div>
+
+        <a class="botao" href="/cadastro">
+            + Novo aluno
+        </a>
+
+    </div>
+
+
+    <div class="cards-estatisticas">
+
+        <div class="card-estatistica">
+
+            <span>Total de alunos</span>
+
+            <strong>{{totalAlunos}}</strong>
+
+        </div>
+
+
+        <div class="card-estatistica">
+
+            <span>Alunos ativos</span>
+
+            <strong>{{alunosAtivos}}</strong>
+
+        </div>
+
+
+        <div class="card-estatistica">
+
+            <span>Alunos inativos</span>
+
+            <strong>{{alunosInativos}}</strong>
+
+        </div>
+
+
+        <div class="card-estatistica">
+
+            <span>Média de idade</span>
+
+            <strong>{{mediaIdade}}</strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="painel">
+
+        <div class="painel-topo">
+
+            <div>
+
+                <h3>Alunos adicionados recentemente</h3>
+
+                <p>Últimos registros do sistema.</p>
+
+            </div>
+
+            <a href="/alunos">Ver todos</a>
+
+        </div>
+
+
+        <div class="lista-recente">
+
+            {{#each ultimosAlunos}}
+
+            <div class="item-recente">
+
+                <div class="avatar">
+                    {{this.nome}}
+                </div>
+
+                <div class="item-recente-info">
+
+                    <strong>
+                        {{this.nome}}
+                    </strong>
+
+                    <span>
+                        {{this.curso}} • {{this.turma}}
+                    </span>
+
+                </div>
+
+                <a href="/alunos/{{this.id}}">
+                    Ver detalhes
+                </a>
+
+            </div>
+
+            {{/each}}
+
+        </div>
+
+    </div>
+
+</div>

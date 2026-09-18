@@ -1,0 +1,262 @@
+<div class="pagina">
+
+    <div class="titulo-pagina">
+
+        <div>
+
+            <h2>Alunos</h2>
+
+            <p>
+                Consulte e gerencie os alunos cadastrados.
+            </p>
+
+        </div>
+
+        <a class="botao" href="/cadastro">
+            + Cadastrar aluno
+        </a>
+
+    </div>
+
+
+    {{#if sucesso}}
+
+    <div class="mensagem-sucesso">
+        {{sucesso}}
+    </div>
+
+    {{/if}}
+
+
+    <div class="painel filtros">
+
+        <form method="GET" action="/alunos">
+
+            <div class="campo-filtro busca">
+
+                <label>Buscar</label>
+
+                <input
+                    type="text"
+                    name="busca"
+                    value="{{busca}}"
+                    placeholder="Nome, e-mail ou curso"
+                >
+
+            </div>
+
+
+            <div class="campo-filtro">
+
+                <label>Curso</label>
+
+                <select name="curso">
+
+                    <option value="">
+                        Todos
+                    </option>
+
+                    {{#each cursos}}
+
+                    <option
+                        value="{{this.nome}}"
+                        {{#if this.selecionado}}selected{{/if}}
+                    >
+                        {{this.nome}}
+                    </option>
+
+                    {{/each}}
+
+                </select>
+
+            </div>
+
+
+            <div class="campo-filtro">
+
+                <label>Status</label>
+
+                <select name="status">
+
+                    <option value="">
+                        Todos
+                    </option>
+
+                    {{#each status}}
+
+                    <option
+                        value="{{this.nome}}"
+                        {{#if this.selecionado}}selected{{/if}}
+                    >
+                        {{this.nome}}
+                    </option>
+
+                    {{/each}}
+
+                </select>
+
+            </div>
+
+
+            <button class="botao" type="submit">
+                Filtrar
+            </button>
+
+            <a class="botao botao-cinza" href="/alunos">
+                Limpar
+            </a>
+
+        </form>
+
+    </div>
+
+
+    <div class="tabela-topo">
+
+        <span>
+            {{totalFiltrado}} aluno(s) encontrado(s)
+        </span>
+
+    </div>
+
+
+    <div class="tabela-container">
+
+        {{#if lista.length}}
+
+        <table class="tabela-alunos">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Aluno</th>
+                    <th>E-mail</th>
+                    <th>Curso</th>
+                    <th>Turma</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {{#each lista}}
+
+                <tr>
+
+                    <td>
+                        {{this.id}}
+                    </td>
+
+                    <td>
+
+                        <div class="aluno-tabela">
+
+                            <strong>
+                                {{this.nome}}
+                            </strong>
+
+                            <span>
+                                {{this.idade}} anos
+                            </span>
+
+                        </div>
+
+                    </td>
+
+                    <td>
+                        {{this.email}}
+                    </td>
+
+                    <td>
+                        {{this.curso}}
+                    </td>
+
+                    <td>
+                        {{this.turma}}
+                    </td>
+
+                    <td>
+
+                        {{#if (eq this.status "Ativo")}}
+                            <span class="status ativo">
+                                Ativo
+                            </span>
+                        {{else}}
+                            <span class="status inativo">
+                                Inativo
+                            </span>
+                        {{/if}}
+
+                    </td>
+
+                    <td>
+
+                        <div class="acoes">
+
+                            <a
+                                href="/alunos/{{this.id}}"
+                                class="acao-ver"
+                            >
+                                Ver
+                            </a>
+
+                            <a
+                                href="/editar/{{this.id}}"
+                                class="acao-editar"
+                            >
+                                Editar
+                            </a>
+
+                            <form
+                                method="POST"
+                                action="/excluir/{{this.id}}"
+                            >
+
+                                <button
+                                    type="submit"
+                                    class="acao-excluir"
+                                    onclick="return confirm('Deseja realmente excluir este aluno?')"
+                                >
+                                    Excluir
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                {{/each}}
+
+            </tbody>
+
+        </table>
+
+        {{else}}
+
+        <div class="vazio">
+
+            <h3>Nenhum aluno encontrado</h3>
+
+            <p>
+                Tente alterar os filtros ou cadastre um novo aluno.
+            </p>
+
+            <a class="botao" href="/cadastro">
+                Cadastrar aluno
+            </a>
+
+        </div>
+
+        {{/if}}
+
+    </div>
+
+</div>

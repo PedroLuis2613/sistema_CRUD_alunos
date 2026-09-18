@@ -1,0 +1,201 @@
+<div class="pagina">
+
+    <div class="titulo-pagina">
+
+        <div>
+
+            <h2>Cadastrar aluno</h2>
+
+            <p>
+                Preencha os dados do novo aluno.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    {{#if erros}}
+
+    <div class="erros">
+
+        <strong>Corrija os seguintes problemas:</strong>
+
+        <ul>
+
+            {{#each erros}}
+                <li>{{this}}</li>
+            {{/each}}
+
+        </ul>
+
+    </div>
+
+    {{/if}}
+
+
+    <form
+        class="formulario"
+        method="POST"
+        action="/cadastro"
+    >
+
+        <div class="form-grid">
+
+            <div class="campo">
+
+                <label>Nome completo</label>
+
+                <input
+                    type="text"
+                    name="nome"
+                    value="{{aluno.nome}}"
+                    placeholder="Digite o nome completo"
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>E-mail</label>
+
+                <input
+                    type="email"
+                    name="email"
+                    value="{{aluno.email}}"
+                    placeholder="exemplo@email.com"
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Idade</label>
+
+                <input
+                    type="number"
+                    name="idade"
+                    value="{{aluno.idade}}"
+                    placeholder="Idade"
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Curso</label>
+
+                <input
+                    type="text"
+                    name="curso"
+                    value="{{aluno.curso}}"
+                    placeholder="Curso"
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Turma</label>
+
+                <input
+                    type="text"
+                    name="turma"
+                    value="{{aluno.turma}}"
+                    placeholder="Ex.: 2º DS"
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Turno</label>
+
+                <select name="turno">
+
+                    <option value="">
+                        Selecione
+                    </option>
+
+                    <option value="Manhã">
+                        Manhã
+                    </option>
+
+                    <option value="Tarde">
+                        Tarde
+                    </option>
+
+                    <option value="Noite">
+                        Noite
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Cidade</label>
+
+                <input
+                    type="text"
+                    name="cidade"
+                    value="{{aluno.cidade}}"
+                    placeholder="Cidade"
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Status</label>
+
+                <select name="status">
+
+                    <option value="">
+                        Selecione
+                    </option>
+
+                    <option value="Ativo">
+                        Ativo
+                    </option>
+
+                    <option value="Inativo">
+                        Inativo
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="botoes-formulario">
+
+            <button
+                class="botao"
+                type="submit"
+            >
+                Cadastrar aluno
+            </button>
+
+            <a
+                class="botao botao-cinza"
+                href="/alunos"
+            >
+                Cancelar
+            </a>
+
+        </div>
+
+    </form>
+
+</div>

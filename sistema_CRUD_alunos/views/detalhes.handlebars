@@ -1,0 +1,117 @@
+<div class="pagina">
+
+    <div class="titulo-pagina">
+
+        <div>
+
+            <h2>Detalhes do aluno</h2>
+
+            <p>
+                Informações completas do cadastro.
+            </p>
+
+        </div>
+
+        <div class="botoes-formulario">
+
+            <a
+                class="botao botao-cinza"
+                href="/alunos"
+            >
+                Voltar
+            </a>
+
+            <a
+                class="botao"
+                href="/editar/{{aluno.id}}"
+            >
+                Editar aluno
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="detalhes-card">
+
+        <div class="detalhes-cabecalho">
+
+            <div class="avatar-grande">
+                {{aluno.nome}}
+            </div>
+
+            <div>
+
+                <h3>{{aluno.nome}}</h3>
+
+                <p>
+                    {{aluno.curso}} • {{aluno.turma}}
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="detalhes-grid">
+
+            <div>
+                <span>Identificação</span>
+                <strong>#{{aluno.id}}</strong>
+            </div>
+
+            <div>
+                <span>E-mail</span>
+                <strong>{{aluno.email}}</strong>
+            </div>
+
+            <div>
+                <span>Idade</span>
+                <strong>{{aluno.idade}} anos</strong>
+            </div>
+
+            <div>
+                <span>Curso</span>
+                <strong>{{aluno.curso}}</strong>
+            </div>
+
+            <div>
+                <span>Turma</span>
+                <strong>{{aluno.turma}}</strong>
+            </div>
+
+            <div>
+                <span>Turno</span>
+                <strong>{{aluno.turno}}</strong>
+            </div>
+
+            <div>
+                <span>Cidade</span>
+                <strong>{{aluno.cidade}}</strong>
+            </div>
+
+            <div>
+                <span>Status</span>
+
+                {{#if (eq aluno.status "Ativo")}}
+
+                    <strong class="status ativo">
+                        Ativo
+                    </strong>
+
+                {{else}}
+
+                    <strong class="status inativo">
+                        Inativo
+                    </strong>
+
+                {{/if}}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
